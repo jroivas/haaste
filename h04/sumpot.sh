@@ -8,7 +8,7 @@ fi
 sumpot() {
 	for NRO in $(seq $1 $2); do
 		s=0
-		for res in $(echo "e=p($NRO)" | bc sumpot2.bc); do
+		for res in $(echo "e=p($NRO)" | bc sumpot.bc); do
 			if [ $s -eq 0 ] ; then
 				SUM=$res
 				s=1
