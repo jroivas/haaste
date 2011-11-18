@@ -7,10 +7,16 @@ fi
 
 sumpot() {
 	for NRO in $(seq $1 $2); do
-		for TULO in $(echo "e=p($NRO)" | bc sumpot.bc); do
-			SUM=$(echo $TULO | sed 's/\(.\)/+\1/g;s/+//' | bc)
-			if [ "$NRO" == "$SUM" ]; then
-				echo $TULO
+		s=0
+		for res in $(echo "e=p($NRO)" | bc sumpot2.bc); do
+			if [ $s -eq 0 ] ; then
+				SUM=$res
+				s=1
+			else
+				s=0
+				if [ "$NRO" == "$SUM" ]; then
+					echo $res
+				fi
 			fi
 		done
 	done

@@ -1,2 +1,2 @@
 #!/usr/bin/bc
-define p(x){for(i=x*x;i<10^50;i*=x){print i,"\n"}}
+define p(x){for(i=x*x;i<10^50;i*=x){sum=0;j=i;while(j>0){sum+=(j%10);j/=10};print sum,"\n",i,"\n"}}
